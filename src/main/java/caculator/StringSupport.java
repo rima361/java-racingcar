@@ -4,8 +4,6 @@ public class StringSupport {
 
     private final String target;
 
-    public static final String EMPTY = "";
-
     public static StringSupport of(final String target) {
         if(target == null) {
             throw new IllegalArgumentException("target is required.");

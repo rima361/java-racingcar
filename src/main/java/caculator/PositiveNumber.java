@@ -24,6 +24,6 @@ public class PositiveNumber {
     }
 
     private boolean isEmpty(final String value) {
-        return value == null || StringSupport.EMPTY.equals(value);
+        return value == null || value.isEmpty();
     }
 }
