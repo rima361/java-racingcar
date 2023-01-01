@@ -1,4 +1,4 @@
-package calculator;
+package calculator.string;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import caculator.PositiveNumber;
-import caculator.StringAddCalculator;
+import caculator.string.StringAddCalculator;
 
 class StringAddCalculatorTest {
 
