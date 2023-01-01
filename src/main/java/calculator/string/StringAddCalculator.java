@@ -1,8 +1,8 @@
-package caculator.string;
+package calculator.string;
 
 import java.util.Arrays;
 
-import caculator.PositiveNumber;
+import calculator.PositiveNumber;
 
 public class StringAddCalculator {
 

@@ -10,8 +10,7 @@ import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import caculator.PositiveNumber;
-import caculator.string.StringAddCalculator;
+import calculator.PositiveNumber;
 
 class StringAddCalculatorTest {
 

@@ -1,4 +1,4 @@
-package caculator.string;
+package calculator.string;
 
 public class StringSupport {
 
