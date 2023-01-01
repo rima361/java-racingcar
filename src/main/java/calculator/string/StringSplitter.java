@@ -1,7 +1,13 @@
 package calculator.string;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import calculator.Number;
+import calculator.Operation;
 
 public class StringSplitter {
 
@@ -16,4 +22,24 @@ public class StringSplitter {
         }
         return value.split(DEFAULT_SPLITTER);
     }
+
+    public static List<Number> extractNumber(final String value) {
+        final char[] chars = value.replaceAll(StringSupport.SPACE, StringSupport.EMPTY).toCharArray();
+        return IntStream.range(0, chars.length)
+                        .filter(i -> Character.isDigit(chars[i]))
+                        .mapToObj(i -> String.valueOf(chars[i]))
+                        .map(Long::parseLong)
+                        .map(Number::new)
+                        .collect(Collectors.toList());
+    }
+
+    public static List<Operation> extractOperation(String value) {
+        final char[] chars = value.replaceAll(StringSupport.SPACE, StringSupport.EMPTY).toCharArray();
+        return IntStream.range(0, chars.length)
+                        .filter(i -> Operation.isSupportedSymbol(chars[i]))
+                        .mapToObj(i -> String.valueOf(chars[i]))
+                        .map(Operation::of)
+                        .collect(Collectors.toList());
+    }
+
 }
