@@ -6,7 +6,7 @@ import java.util.Queue;
 
 import calculator.Number;
 import calculator.Operation;
-import calculator.string.StringSplitter;
+import calculator.string.StringUtils;
 
 public class CalculateInfo {
     private final List<Number> numbers;
@@ -29,7 +29,7 @@ public class CalculateInfo {
         if (!new CalculatorInputValidator(value).isValid()) {
             throw new IllegalArgumentException();
         }
-        return new CalculateInfo(StringSplitter.extractNumber(value), StringSplitter.extractOperation(value));
+        return new CalculateInfo(Number.extractNumber(value), Operation.extractOperation(value));
     }
 
     public Operation pollOperation() {

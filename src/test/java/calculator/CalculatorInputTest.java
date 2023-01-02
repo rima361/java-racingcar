@@ -6,8 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EmptySource;
-import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import calculator.view.CalculateInfo;
@@ -15,8 +14,7 @@ import calculator.view.CalculateInfo;
 class CalculatorInputTest {
 
     @ParameterizedTest
-    @NullSource
-    @EmptySource
+    @NullAndEmptySource
     @ValueSource(strings = { "2 + 3 ; 4 / 2" })
     @DisplayName("입력값이 null, 빈 공백이거나 사칙연산 기호가 아닌 경우 IllegalArgumentException 예외가 발생한다.")
     public void test_null_or_empty(final String given) {

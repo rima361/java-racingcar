@@ -3,6 +3,9 @@ package calculator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import calculator.string.StringUtils;
 
 public enum Operation {
     PLUS("+", PlusCalculator.instance),
@@ -35,6 +38,15 @@ public enum Operation {
 
     public Number calculate(final Number operand1, final Number operand2) {
         return calculator.calculate(operand1, operand2);
+    }
+
+    public static List<Operation> extractOperation(final String value) {
+        final char[] chars = StringUtils.getChars(value);
+        return IntStream.range(0, chars.length)
+                        .filter(i -> Operation.isSupportedSymbol(chars[i]))
+                        .mapToObj(i -> String.valueOf(chars[i]))
+                        .map(Operation::of)
+                        .collect(Collectors.toList());
     }
 
 }

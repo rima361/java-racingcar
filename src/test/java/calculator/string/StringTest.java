@@ -13,14 +13,14 @@ class StringTest {
     @Test
     @DisplayName(",로 연결된 숫자 문자열이 잘 분리되는지 확인한다.")
     void test_split_numbers() {
-        final String[] actual = StringSupport.of("1,2").split(DELIMITER);
+        final String[] actual = StringAddCalculatorInput.of("1,2").split(DELIMITER);
         assertThat(actual).containsExactly("1", "2");
     }
 
     @Test
     @DisplayName("단일 문자열이 잘 분리되는지 확인한다.")
     void test_split_number() {
-        final String[] actual = StringSupport.of("1").split(DELIMITER);
+        final String[] actual = StringAddCalculatorInput.of("1").split(DELIMITER);
         assertThat(actual).containsExactly("1");
     }
 

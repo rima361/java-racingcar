@@ -3,7 +3,7 @@ package calculator.view;
 import java.util.stream.IntStream;
 
 import calculator.Operation;
-import calculator.string.StringSupport;
+import calculator.string.StringUtils;
 
 public class CalculatorInputValidator {
 
@@ -18,7 +18,7 @@ public class CalculatorInputValidator {
             return false;
         }
 
-        final char[] chars = input.replaceAll(StringSupport.SPACE, StringSupport.EMPTY).toCharArray();
+        final char[] chars = input.replaceAll(StringUtils.SPACE, StringUtils.EMPTY).toCharArray();
         return IntStream.range(0, chars.length)
                         .filter(i -> !Character.isDigit(chars[i]))
                         .allMatch(i -> Operation.isSupportedSymbol(chars[i]));
