@@ -6,6 +6,6 @@ public class DivideCalculator implements Calculator {
 
     @Override
     public Number calculate(final Number operand1, final Number operand2) {
-        return new Number(operand1.getValue() / operand2.getValue());
+        return operand1.divide(operand2);
     }
 }

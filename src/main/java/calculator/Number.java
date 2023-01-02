@@ -16,10 +16,6 @@ public class Number {
         this.value = value;
     }
 
-    public Long getValue() {
-        return value;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -37,6 +33,14 @@ public class Number {
         return Objects.hash(value);
     }
 
+    @Override
+    public String toString() {
+        if(value == null) {
+            return StringUtils.EMPTY;
+        }
+        return value.toString();
+    }
+
     public static List<Number> extractNumber(final String value) {
         final char[] chars = StringUtils.getChars(value);
         return IntStream.range(0, chars.length)
@@ -45,5 +49,21 @@ public class Number {
                         .map(Long::parseLong)
                         .map(Number::new)
                         .collect(Collectors.toList());
+    }
+
+    public Number add(final Number target) {
+        return new Number(value + target.value);
+    }
+
+    public Number subtract(final Number target) {
+        return new Number(value - target.value);
+    }
+
+    public Number multiply(final Number target) {
+        return new Number(value * target.value);
+    }
+
+    public Number divide(final Number target) {
+        return new Number(value / target.value);
     }
 }

@@ -6,6 +6,6 @@ public class MinusCalculator implements Calculator {
 
     @Override
     public Number calculate(final Number operand1, final Number operand2) {
-        return new Number(operand1.getValue() - operand2.getValue());
+        return operand1.subtract(operand2);
     }
 }

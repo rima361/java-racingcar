@@ -13,6 +13,6 @@ public class CalculatorRunner {
         System.out.println("Input: ");
         final CalculateInfo input = CalculateInfo.of(SCANNER.next());
         final Number result = StringCalculator.calculate(input);
-        System.out.println("Result: " + result.getValue());
+        System.out.println("Result: " + result);
     }
 }
