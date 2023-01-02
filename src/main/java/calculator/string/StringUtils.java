@@ -3,7 +3,7 @@ package calculator.string;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringSplitter {
+public class StringUtils {
 
     private static final String DEFAULT_SPLITTER = ",|:";
     private static final Pattern CUSTOM_PATTERN = Pattern.compile("//(.)\n(.*)");

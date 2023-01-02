@@ -1,17 +1,17 @@
 package calculator.string;
 
-public class StringSupport {
+public class StringAddCalculatorInput {
 
     private final String target;
 
-    public static StringSupport of(final String target) {
+    public static StringAddCalculatorInput of(final String target) {
         if(target == null) {
             throw new IllegalArgumentException("target is required.");
         }
-        return new StringSupport(target);
+        return new StringAddCalculatorInput(target);
     }
 
-    private StringSupport(final String target) {
+    private StringAddCalculatorInput(final String target) {
         this.target = target;
     }
 

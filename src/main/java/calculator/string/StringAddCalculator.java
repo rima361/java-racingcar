@@ -9,7 +9,7 @@ import calculator.PositiveNumber;
 public class StringAddCalculator {
 
     public static long add(final String value) {
-        final List<PositiveNumber> numbers = Arrays.stream(StringSplitter.split(value))
+        final List<PositiveNumber> numbers = Arrays.stream(StringUtils.split(value))
                                                    .map(PositiveNumber::of)
                                                    .collect(Collectors.toList());
         return PositiveNumber.sum(numbers);
