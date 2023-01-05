@@ -7,6 +7,9 @@ public class StringUtils {
 
     private static final String DEFAULT_SPLITTER = ",|:";
     private static final Pattern CUSTOM_PATTERN = Pattern.compile("//(.)\n(.*)");
+    public static final String SPACE = " ";
+    public static final String EMPTY = "";
+
 
     public static String[] split(final String value) {
         final Matcher m = CUSTOM_PATTERN.matcher(value);
@@ -16,4 +19,9 @@ public class StringUtils {
         }
         return value.split(DEFAULT_SPLITTER);
     }
+
+    public static char[] getChars(final String value) {
+        return value.replaceAll(StringUtils.SPACE, StringUtils.EMPTY).toCharArray();
+    }
+
 }
