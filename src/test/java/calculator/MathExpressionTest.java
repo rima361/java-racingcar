@@ -15,7 +15,7 @@ class MathExpressionTest {
 
     @ParameterizedTest
     @NullAndEmptySource
-    @ValueSource(strings = { "2 + 3 ; 4 / 2", "+ * / 2 3 4 2", "+ * / * + 2 3 4 2" })
+    @ValueSource(strings = { "2 + 3 ; 4 / 2", "+ * / 2 3 4 2", "+ * / * + 2 3 4 2", "1 3 + 2 +" })
     @DisplayName("입력값이 null, 빈 공백, 사칙연산 기호가 아닌 경우, 연산자 순서가 올바르지 않은 경우 IllegalArgumentException 예외가 발생한다.")
     public void test_null_or_empty(final String given) {
         assertThatThrownBy(() -> MathExpression.of(given)).isInstanceOf(IllegalArgumentException.class);
