@@ -9,9 +9,9 @@ import calculator.view.CalculatorInputValidator;
 
 class CalculatorInputValidatorTest {
 
-    @DisplayName(" null, 빈 공백이거나 사칙연산 기호가 아닌지 확인한다")
+    @DisplayName(" null, 빈 공백이거나 사칙연산 기호가 아닌지, 연산식이 올바른지 확인한다")
     @ParameterizedTest
-    @CsvSource(value = { ":false", "null:false", "1 ; 1:false", "2 + 2:true", " :false"}, delimiter = ':')
+    @CsvSource(value = { ":false", "null:false", "1 ; 1:false", "2 + 2:true", " :false", "+ 1 1:false", " 1 1:false"}, delimiter = ':')
     public void test_valid_input(final String given, final boolean expected) {
         Assertions.assertThat(new CalculatorInputValidator(given).isValid()).isEqualTo(expected);
     }

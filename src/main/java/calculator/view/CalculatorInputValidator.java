@@ -2,6 +2,7 @@ package calculator.view;
 
 import java.util.stream.IntStream;
 
+import calculator.Number;
 import calculator.Operation;
 import calculator.string.StringUtils;
 
@@ -14,7 +15,7 @@ public class CalculatorInputValidator {
     }
 
     public boolean isValid() {
-        if (input == null || input.isEmpty()) {
+        if (input == null || input.isEmpty() || isInValidSequence()) {
             return false;
         }
 
@@ -24,5 +25,18 @@ public class CalculatorInputValidator {
                         .allMatch(i -> Operation.isSupportedSymbol(chars[i]));
     }
 
+    private boolean isInValidSequence() {
+        final char[] chars = input.replaceAll(StringUtils.SPACE, StringUtils.EMPTY).toCharArray();
 
+        if(isEndsWithOperation(chars)) {
+            return true;
+        }
+
+        return IntStream.range(0, chars.length)
+                         .anyMatch(i -> Number.from(i).isOdd() ? !Character.isDigit(chars[i]) : !Operation.isSupportedSymbol(chars[i]));
+    }
+
+    private boolean isEndsWithOperation(final char[] chars) {
+        return !Character.isDigit(chars[chars.length - 1]);
+    }
 }

@@ -13,7 +13,14 @@ public class Number {
     public static final Number ZERO = new Number(0L);
 
     public Number(Long value) {
+        if(value == null) {
+            throw new IllegalArgumentException("value can not be null.");
+        }
         this.value = value;
+    }
+
+    public static Number from(final int value) {
+        return new Number((long) value);
     }
 
     @Override
@@ -35,20 +42,7 @@ public class Number {
 
     @Override
     public String toString() {
-        if(value == null) {
-            return StringUtils.EMPTY;
-        }
         return value.toString();
-    }
-
-    public static List<Number> extractNumber(final String value) {
-        final char[] chars = StringUtils.getChars(value);
-        return IntStream.range(0, chars.length)
-                        .filter(i -> Character.isDigit(chars[i]))
-                        .mapToObj(i -> String.valueOf(chars[i]))
-                        .map(Long::parseLong)
-                        .map(Number::new)
-                        .collect(Collectors.toList());
     }
 
     public Number add(final Number target) {
@@ -65,5 +59,9 @@ public class Number {
 
     public Number divide(final Number target) {
         return new Number(value / target.value);
+    }
+
+    public boolean isOdd() {
+        return value % 2 == 0;
     }
 }

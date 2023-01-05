@@ -11,7 +11,7 @@ public class CalculatorRunner {
 
     public static void main(final String[] args) {
         System.out.println("Input: ");
-        final CalculateInfo input = CalculateInfo.of(SCANNER.next());
+        final MathExpression input = MathExpression.of(SCANNER.next());
         final Number result = StringCalculator.calculate(input);
         System.out.println("Result: " + result);
     }
